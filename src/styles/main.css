@@ -1,3 +1,62 @@
+/* Who Is Jesus identity cards */
+.identity-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.identity-card {
+  background: var(--panel);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  min-width: 260px;
+  max-width: 340px;
+  margin: 0.5rem 0;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+.identity-card:focus {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.identity-card h2 {
+  color: var(--accent-deep);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.plain-meaning {
+  color: var(--accent-deep);
+  font-size: 0.98rem;
+  display: block;
+  margin-top: 0.2rem;
+}
+.main-truth-card {
+  background: var(--panel-strong);
+  color: var(--text);
+  border-left: 6px solid var(--accent);
+  border-radius: var(--radius-soft);
+  box-shadow: var(--shadow);
+  padding: 1.2rem 1.5rem;
+  margin: 2rem auto 0 auto;
+  max-width: 600px;
+  outline: none;
+}
+.main-truth-card:focus {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+@media (max-width: 700px) {
+  .identity-cards-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .identity-card {
+    min-width: 90vw;
+    max-width: 98vw;
+    padding: 1rem;
+  }
+}
 /* Skip link for accessibility */
 .skip-link:focus {
   position: absolute !important;

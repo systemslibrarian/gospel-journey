@@ -196,7 +196,24 @@ function pageJesus(): string {
     <section class="section-pad" aria-labelledby="jesus-title">
       <h1 id="jesus-title">Who Is Jesus?</h1>
       <p class="section-lead">Jesus is not merely a teacher, prophet, or moral example. He is the Son of God, the promised Savior, crucified for sinners, risen from the dead, and Lord of all.</p>
-      <div class="card-grid">${sectionPoints(JESUS_IDENTITY_SECTIONS)}</div>
+      <div class="identity-cards-grid">
+        ${JESUS_IDENTITY_SECTIONS.map((point, idx) => `
+          <article class="identity-card" tabindex="0" aria-label="${point.title}">
+            <h2>${point.title}</h2>
+            <p>${point.summary}</p>
+            <ul class="verse-list">
+              ${point.verseIds.map(id => {
+                const s = getScriptureById(id);
+                return `<li><strong>${s.reference}</strong> — ${s.text}<br><span class="plain-meaning">${s.plainMeaning}</span></li>`;
+              }).join('')}
+            </ul>
+          </article>
+        `).join('')}
+      </div>
+      <div class="main-truth-card" tabindex="0" aria-label="Main truth about Jesus">
+        <h2>Main Truth</h2>
+        <blockquote>Jesus is not merely a teacher, prophet, or moral example. He is the Son of God, the promised Savior, crucified for sinners, risen from the dead, and Lord of all.</blockquote>
+      </div>
     </section>
   `;
 }
@@ -604,12 +621,4 @@ setupAboutPage();
 
 document.documentElement.lang = 'en';
 
-// --- SPA/React page mounting ---
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { JourneyPage } from './components/JourneyPage';
-
-const page = (document.body.dataset.page as PageId) ?? 'home';
-if (page === 'journey') {
-  createRoot(app).render(<JourneyPage />);
-}
+// (React SPA code removed; static/vanilla JS site)
