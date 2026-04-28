@@ -1,3 +1,17 @@
+/* Skip link for accessibility */
+.skip-link:focus {
+  position: absolute !important;
+  left: 8px !important;
+  top: 8px !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  background: var(--color-gold);
+  color: #181a1b;
+  z-index: 1000;
+  outline: 2px solid var(--color-gold);
+}
+
 /* Gospel Journey Main Styles */
 :root {
   --color-bg: #181a1b;
@@ -90,6 +104,18 @@ header, nav, main, footer {
   .card, .scripture-card {
     padding: 1rem;
     margin: 1rem 0;
+  }
+  [aria-label="Start Where You Are"] a,
+  [aria-label="Gospel Clarity Cards"] > div {
+    min-width: 90vw !important;
+    max-width: 98vw !important;
+    font-size: 1rem !important;
+    padding: 1rem !important;
+  }
+  [aria-label="Start Where You Are"] a:focus,
+  [aria-label="Gospel Clarity Cards"] > div:focus {
+    box-shadow: 0 0 0 3px var(--color-gold) !important;
+    outline: none !important;
   }
   h1 {
     font-size: 2rem;

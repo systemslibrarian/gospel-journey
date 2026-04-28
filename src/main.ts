@@ -603,3 +603,13 @@ setupResponsePage();
 setupAboutPage();
 
 document.documentElement.lang = 'en';
+
+// --- SPA/React page mounting ---
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { JourneyPage } from './components/JourneyPage';
+
+const page = (document.body.dataset.page as PageId) ?? 'home';
+if (page === 'journey') {
+  createRoot(app).render(<JourneyPage />);
+}
