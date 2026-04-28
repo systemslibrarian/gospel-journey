@@ -1,4 +1,12 @@
 export type Scripture = {
+  reference: string;
+  text: string;
+  theme: string;
+  plainMeaning: string;
+  reflectionQuestion?: string;
+  prayerPrompt?: string;
+};
+export type Scripture = {
   id: string;
   reference: string;
   text: string;

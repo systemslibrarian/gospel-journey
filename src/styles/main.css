@@ -1,0 +1,100 @@
+/* Gospel Journey Main Styles */
+:root {
+  --color-bg: #181a1b;
+  --color-bg-alt: #23272a;
+  --color-gold: #d4af37;
+  --color-parchment: #f5ecd9;
+  --color-cream: #f8f6f2;
+  --color-crimson: #a83232;
+  --color-text: #f5f5f5;
+  --color-muted: #b0a99f;
+  --font-serif: 'Merriweather', serif;
+  --font-sans: 'Inter', Arial, sans-serif;
+  --shadow-soft: 0 2px 16px rgba(0,0,0,0.08);
+  --border-radius: 16px;
+  --transition: 0.2s cubic-bezier(.4,0,.2,1);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  margin: 0;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-gold);
+  margin-top: 0;
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover, a:focus {
+  color: var(--color-cream);
+}
+
+header, nav, main, footer {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: var(--color-bg-alt);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--color-cream);
+}
+
+.scripture-card {
+  background: var(--color-parchment);
+  color: #2d2d2d;
+  border-left: 6px solid var(--color-gold);
+  margin: 2rem 0;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  font-family: var(--font-serif);
+}
+
+.button {
+  background: var(--color-gold);
+  color: #181a1b;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  margin: 0.5rem 0;
+  transition: background var(--transition), color var(--transition);
+}
+.button:hover, .button:focus {
+  background: var(--color-cream);
+  color: var(--color-bg);
+}
+
+@media (max-width: 600px) {
+  header, nav, main, footer {
+    padding: 0 0.5rem;
+  }
+  .card, .scripture-card {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+}
