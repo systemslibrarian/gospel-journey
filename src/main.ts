@@ -69,18 +69,7 @@ const scriptureList = (ids: string[]) =>
     })
     .join('');
 
-const sectionPoints = (points: { title: string; summary: string; verseIds: string[] }[]) =>
-  points
-    .map(
-      (point) => `
-      <article class="content-card">
-        <h3>${point.title}</h3>
-        <p>${point.summary}</p>
-        <ul class="verse-list">${scriptureList(point.verseIds)}</ul>
-      </article>
-    `,
-    )
-    .join('');
+
 
 function renderNav(items: NavItem[]): string {
   return items
@@ -197,7 +186,7 @@ function pageJesus(): string {
       <h1 id="jesus-title">Who Is Jesus?</h1>
       <p class="section-lead">Jesus is not merely a teacher, prophet, or moral example. He is the Son of God, the promised Savior, crucified for sinners, risen from the dead, and Lord of all.</p>
       <div class="identity-cards-grid">
-        ${JESUS_IDENTITY_SECTIONS.map((point, idx) => `
+        ${JESUS_IDENTITY_SECTIONS.map((point) => `
           <article class="identity-card" tabindex="0" aria-label="${point.title}">
             <h2>${point.title}</h2>
             <p>${point.summary}</p>

@@ -18,8 +18,11 @@
   outline: none;
   transition: box-shadow 0.2s;
 }
-.prayer-prompt-card:focus {
-  box-shadow: 0 0 0 3px var(--accent);
+/* Improved focus state for accessibility */
+.prayer-prompt-card:focus-visible {
+  box-shadow: 0 0 0 4px var(--color-gold);
+  outline: 2px solid var(--color-gold);
+}
 }
 .prayer-prompt-card h2 {
   color: var(--accent-deep);
@@ -57,8 +60,11 @@
   outline: none;
   transition: box-shadow 0.2s;
 }
-.library-theme-card:focus {
-  box-shadow: 0 0 0 3px var(--accent);
+/* Improved focus state for accessibility */
+.library-theme-card:focus-visible {
+  box-shadow: 0 0 0 4px var(--color-gold);
+  outline: 2px solid var(--color-gold);
+}
 }
 .library-theme-card h2 {
   color: var(--accent-deep);
@@ -104,8 +110,11 @@
   outline: none;
   transition: box-shadow 0.2s;
 }
-.next-step-card:focus {
-  box-shadow: 0 0 0 3px var(--accent);
+/* Improved focus state for accessibility */
+.next-step-card:focus-visible {
+  box-shadow: 0 0 0 4px var(--color-gold);
+  outline: 2px solid var(--color-gold);
+}
 }
 .next-step-card h2 {
   color: var(--accent-deep);
@@ -136,8 +145,11 @@
   outline: none;
   transition: box-shadow 0.2s;
 }
-.response-prayer-card:focus {
-  box-shadow: 0 0 0 3px var(--accent);
+/* Improved focus state for accessibility */
+.response-prayer-card:focus-visible {
+  box-shadow: 0 0 0 4px var(--color-gold);
+  outline: 2px solid var(--color-gold);
+}
 }
 .response-buttons-grid {
   display: flex;
@@ -188,8 +200,11 @@
   outline: none;
   transition: box-shadow 0.2s;
 }
-.timeline-stop:focus {
-  box-shadow: 0 0 0 3px #a83232;
+/* Improved focus state for accessibility */
+.timeline-stop:focus-visible {
+  box-shadow: 0 0 0 4px var(--color-gold);
+  outline: 2px solid var(--color-gold);
+}
 }
 .timeline-dot {
   position: absolute;
@@ -286,8 +301,11 @@
   outline: none;
   transition: box-shadow 0.2s;
 }
-.truth-card:focus {
-  box-shadow: 0 0 0 3px var(--accent);
+/* Improved focus state for accessibility */
+.truth-card:focus-visible {
+  box-shadow: 0 0 0 4px var(--color-gold);
+  outline: 2px solid var(--color-gold);
+}
 }
 .why-saving-grid {
   display: flex;
@@ -308,8 +326,11 @@
   outline: none;
   transition: box-shadow 0.2s;
 }
-.why-saving-card:focus {
-  box-shadow: 0 0 0 3px var(--accent);
+/* Improved focus state for accessibility */
+.why-saving-card:focus-visible {
+  box-shadow: 0 0 0 4px var(--color-gold);
+  outline: 2px solid var(--color-gold);
+}
 }
 .why-saving-card h2 {
   color: var(--accent-deep);
@@ -347,8 +368,11 @@
   outline: none;
   transition: box-shadow 0.2s;
 }
-.identity-card:focus {
-  box-shadow: 0 0 0 3px var(--accent);
+/* Improved focus state for accessibility */
+.identity-card:focus-visible {
+  box-shadow: 0 0 0 4px var(--color-gold);
+  outline: 2px solid var(--color-gold);
+}
 }
 .identity-card h2 {
   color: var(--accent-deep);
@@ -372,8 +396,11 @@
   max-width: 600px;
   outline: none;
 }
-.main-truth-card:focus {
-  box-shadow: 0 0 0 3px var(--accent);
+/* Improved focus state for accessibility */
+.main-truth-card:focus-visible {
+  box-shadow: 0 0 0 4px var(--color-gold);
+  outline: 2px solid var(--color-gold);
+}
 }
 @media (max-width: 700px) {
   .identity-cards-grid {
@@ -387,7 +414,8 @@
   }
 }
 /* Skip link for accessibility */
-.skip-link:focus {
+/* Improved skip link for accessibility */
+.skip-link:focus-visible {
   position: absolute !important;
   left: 8px !important;
   top: 8px !important;
@@ -398,14 +426,19 @@
   color: #181a1b;
   z-index: 1000;
   outline: 2px solid var(--color-gold);
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  font-weight: bold;
+}
 }
 
 /* Gospel Journey Main Styles */
+/* Add higher contrast for accessibility */
 :root {
   --color-bg: #181a1b;
   --color-bg-alt: #23272a;
-  --color-gold: #d4af37;
-  --color-parchment: #f5ecd9;
+  --color-gold: #ffd700;
+  --color-parchment: #fff8ea;
   --color-cream: #f8f6f2;
   --color-crimson: #a83232;
   --color-text: #f5f5f5;
@@ -416,6 +449,7 @@
   --border-radius: 16px;
   --transition: 0.2s cubic-bezier(.4,0,.2,1);
 }
+}
 
 body {
   background: var(--color-bg);
@@ -424,6 +458,23 @@ body {
   margin: 0;
   line-height: 1.7;
   min-height: 100vh;
+}
+
+main {
+  display: block;
+}
+
+nav {
+  display: block;
+}
+
+header {
+  display: block;
+}
+
+footer {
+  display: block;
+}
 }
 
 h1, h2, h3, h4, h5, h6 {
