@@ -1,3 +1,332 @@
+/* Prayer Response section */
+.prayer-prompt-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.prayer-prompt-card {
+  background: var(--panel);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  min-width: 260px;
+  max-width: 340px;
+  margin: 0.5rem 0;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+.prayer-prompt-card:focus {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.prayer-prompt-card h2 {
+  color: var(--accent-deep);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 700px) {
+  .prayer-prompt-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .prayer-prompt-card {
+    min-width: 90vw;
+    max-width: 98vw;
+    padding: 1rem;
+  }
+}
+/* Scripture Library section */
+.library-theme-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.library-theme-card {
+  background: var(--panel);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  min-width: 260px;
+  max-width: 340px;
+  margin: 0.5rem 0;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+.library-theme-card:focus {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.library-theme-card h2 {
+  color: var(--accent-deep);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.library-item {
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--surface-border);
+}
+.library-item:last-child {
+  border-bottom: none;
+}
+@media (max-width: 700px) {
+  .library-theme-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .library-theme-card {
+    min-width: 90vw;
+    max-width: 98vw;
+    padding: 1rem;
+  }
+}
+/* Next Steps section */
+.next-steps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.next-step-card {
+  background: var(--panel);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  min-width: 260px;
+  max-width: 340px;
+  margin: 0.5rem 0;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+.next-step-card:focus {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.next-step-card h2 {
+  color: var(--accent-deep);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 700px) {
+  .next-steps-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .next-step-card {
+    min-width: 90vw;
+    max-width: 98vw;
+    padding: 1rem;
+  }
+}
+/* Ready to Respond section */
+.response-prayer-card {
+  background: var(--panel-strong);
+  color: var(--text);
+  border-left: 6px solid var(--accent);
+  border-radius: var(--radius-soft);
+  box-shadow: var(--shadow);
+  padding: 1.2rem 1.5rem;
+  margin: 2rem auto 2.5rem auto;
+  max-width: 600px;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+.response-prayer-card:focus {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.response-buttons-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin: 2rem 0 1.5rem 0;
+}
+.response-buttons-grid .button {
+  min-width: 220px;
+  font-size: 1.08rem;
+}
+@media (max-width: 700px) {
+  .response-buttons-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .response-buttons-grid .button {
+    min-width: 90vw;
+    max-width: 98vw;
+    padding: 1rem;
+  }
+}
+/* Scarlet Thread Timeline */
+.scarlet-timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 3rem;
+}
+.scarlet-line {
+  position: absolute;
+  left: 1.2rem;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #a83232 0%, #d6b36f 100%);
+  border-radius: 2px;
+  z-index: 0;
+}
+.timeline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.timeline-stop {
+  position: relative;
+  margin-bottom: 2.5rem;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+.timeline-stop:focus {
+  box-shadow: 0 0 0 3px #a83232;
+}
+.timeline-dot {
+  position: absolute;
+  left: -2.1rem;
+  top: 2.1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #a83232;
+  border: 3px solid #fff8ea;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(168,50,50,0.18);
+}
+.timeline-card {
+  background: var(--panel);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-left: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.timeline-count {
+  background: #a83232;
+  color: #fff8ea;
+  border-radius: 50%;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+}
+.timeline-ref {
+  color: var(--accent-deep);
+  font-size: 1rem;
+  margin-left: auto;
+}
+.timeline-body {
+  margin-top: 0.5rem;
+}
+.reveal-panel {
+  margin-top: 1rem;
+  background: var(--panel-strong);
+  border-left: 4px solid #a83232;
+  border-radius: var(--radius-soft);
+  padding: 1rem 1.2rem;
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 700px) {
+  .scarlet-timeline {
+    padding-left: 0.5rem;
+  }
+  .scarlet-line {
+    left: 0.2rem;
+  }
+  .timeline-card {
+    padding: 1rem;
+  }
+  .timeline-count {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1rem;
+  }
+}
+/* Why Do I Need Saving truth cards */
+.truth-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.truth-card {
+  background: var(--panel-strong);
+  color: var(--accent-deep);
+  border-left: 6px solid var(--accent);
+  border-radius: var(--radius-soft);
+  box-shadow: var(--shadow);
+  padding: 1.2rem 1.5rem;
+  min-width: 220px;
+  max-width: 340px;
+  font-size: 1.08rem;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+.truth-card:focus {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.why-saving-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.why-saving-card {
+  background: var(--panel);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  min-width: 260px;
+  max-width: 340px;
+  margin: 0.5rem 0;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+.why-saving-card:focus {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.why-saving-card h2 {
+  color: var(--accent-deep);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 700px) {
+  .truth-cards-grid, .why-saving-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .truth-card, .why-saving-card {
+    min-width: 90vw;
+    max-width: 98vw;
+    padding: 1rem;
+  }
+}
 /* Who Is Jesus identity cards */
 .identity-cards-grid {
   display: flex;

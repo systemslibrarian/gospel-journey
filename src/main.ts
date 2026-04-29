@@ -222,13 +222,26 @@ function pageWhySaving(): string {
   return `
     <section class="section-pad" aria-labelledby="why-saving-title">
       <h1 id="why-saving-title">Why Do I Need Saving?</h1>
-      <p class="section-lead">Truthful and compassionate: sin is serious, grace is greater, and Jesus is sufficient.</p>
-      <div class="truth-card-row">
-        <article class="truth-card">Religion says: Do enough. The Gospel says: Jesus has done what you could not do.</article>
-        <article class="truth-card">Salvation is not earned. It is received.</article>
-        <article class="truth-card">Grace is not God ignoring sin. Grace is God providing a Savior.</article>
+      <p class="section-lead">Sin is serious, grace is greater, and Jesus is sufficient. The Gospel is not "try harder"—it is "Jesus has done what you could not do."</p>
+      <div class="truth-cards-grid">
+        <article class="truth-card" tabindex="0">Religion says: <strong>Do enough.</strong><br>The Gospel says: <strong>Jesus has done what you could not do.</strong></article>
+        <article class="truth-card" tabindex="0">Salvation is not earned. <strong>It is received.</strong></article>
+        <article class="truth-card" tabindex="0">Grace is not God ignoring sin. <strong>Grace is God providing a Savior.</strong></article>
       </div>
-      <div class="card-grid">${sectionPoints(WHY_NEED_SAVING_SECTIONS)}</div>
+      <div class="why-saving-grid">
+        ${WHY_NEED_SAVING_SECTIONS.map(point => `
+          <article class="why-saving-card" tabindex="0" aria-label="${point.title}">
+            <h2>${point.title}</h2>
+            <p>${point.summary}</p>
+            <ul class="verse-list">
+              ${point.verseIds.map(id => {
+                const s = getScriptureById(id);
+                return `<li><strong>${s.reference}</strong> — ${s.text}<br><span class="plain-meaning">${s.plainMeaning}</span></li>`;
+              }).join('')}
+            </ul>
+          </article>
+        `).join('')}
+      </div>
     </section>
   `;
 }
@@ -239,25 +252,32 @@ function pageScarletThread(): string {
       <h1 id="scarlet-title">The Scarlet Thread</h1>
       <p class="section-lead">Follow the promise of redemption from Genesis to Jesus.</p>
       <p class="core-line">The Gospel did not begin in Matthew. The whole Bible tells the story of God’s rescue through Jesus Christ.</p>
-      <ol class="timeline">
-        ${SCARLET_THREAD_STOPS.map(
-          (stop, index) => `
-          <li class="timeline-stop">
-            <article>
-              <p class="timeline-count">Stop ${index + 1}</p>
-              <h2>${stop.title}</h2>
-              <p class="timeline-ref">${stop.reference}</p>
-              <p><strong>What happened?</strong> ${stop.whatHappened}</p>
-              <p><strong>What did God promise?</strong> ${stop.promise}</p>
-              <button type="button" class="button button-soft reveal-trigger" data-reveal-id="${stop.id}">Reveal how this points to Jesus</button>
-              <div id="${stop.id}" class="reveal-panel" hidden>
-                <p><strong>How does this point to Jesus?</strong> ${stop.pointsToJesus}</p>
-                <p><strong>What does this mean for me?</strong> ${stop.meansForMe}</p>
-              </div>
-            </article>
-          </li>`,
-        ).join('')}
-      </ol>
+      <div class="scarlet-timeline">
+        <div class="scarlet-line" aria-hidden="true"></div>
+        <ol class="timeline-list">
+          ${SCARLET_THREAD_STOPS.map((stop, index) => `
+            <li class="timeline-stop" tabindex="0" aria-label="${stop.title}">
+              <div class="timeline-dot"></div>
+              <article class="timeline-card">
+                <div class="timeline-header">
+                  <span class="timeline-count">${index + 1}</span>
+                  <h2>${stop.title}</h2>
+                  <span class="timeline-ref">${stop.reference}</span>
+                </div>
+                <div class="timeline-body">
+                  <p><strong>What happened?</strong> ${stop.whatHappened}</p>
+                  <p><strong>What did God promise?</strong> ${stop.promise}</p>
+                  <button type="button" class="button button-soft reveal-trigger" data-reveal-id="${stop.id}">Reveal how this points to Jesus</button>
+                  <div id="${stop.id}" class="reveal-panel" hidden>
+                    <p><strong>How does this point to Jesus?</strong> ${stop.pointsToJesus}</p>
+                    <p><strong>What does this mean for me?</strong> ${stop.meansForMe}</p>
+                  </div>
+                </div>
+              </article>
+            </li>
+          `).join('')}
+        </ol>
+      </div>
     </section>
   `;
 }
@@ -267,13 +287,13 @@ function pageRespond(): string {
     <section class="section-pad" aria-labelledby="respond-title">
       <h1 id="respond-title">Ready to Respond?</h1>
       <p class="section-lead">If you understand that you have sinned, believe that Jesus died for your sins and rose again, and want to trust Him as your Savior, you can call on Him now.</p>
-      <article class="verse-card">
+      <article class="response-prayer-card" tabindex="0">
         <h2>Prayer of Response</h2>
-        <p>Lord Jesus, I know that I have sinned and need forgiveness. I believe You died for my sins and rose again. I cannot save myself. I trust You as my Savior and Lord. Please forgive me, make me new, and lead my life from this day forward. Amen.</p>
+        <blockquote>Lord Jesus, I know that I have sinned and need forgiveness. I believe You died for my sins and rose again. I cannot save myself. I trust You as my Savior and Lord. Please forgive me, make me new, and lead my life from this day forward. Amen.</blockquote>
+        <p class="note">This prayer is not a formula or magic words. What matters is sincere faith in Jesus Christ.</p>
       </article>
-      <p class="note">This prayer is not a formula or magic words. What matters is sincere faith in Jesus Christ.</p>
       <ul class="verse-list">${scriptureList(['rom-10-9-13', 'john-1-12', 'acts-16-31', 'eph-2-8-9'])}</ul>
-      <div class="choice-grid response-choices" role="group" aria-label="Response options">
+      <div class="response-buttons-grid" role="group" aria-label="Response options">
         <button type="button" class="button button-soft response-option" data-response="trust">I want to trust Jesus</button>
         <button type="button" class="button button-soft response-option" data-response="learn">I want to learn more</button>
         <button type="button" class="button button-soft response-option" data-response="questions">I have questions</button>
@@ -289,15 +309,19 @@ function pageNextSteps(): string {
     <section class="section-pad" aria-labelledby="next-steps-title">
       <h1 id="next-steps-title">I Trusted Christ. What Now?</h1>
       <p class="section-lead">You are not saved by growing perfectly. You grow because Christ has saved you.</p>
-      <div class="card-grid">
-        ${NEXT_STEPS.map(
-          (step) => `
-          <article class="content-card">
+      <div class="next-steps-grid">
+        ${NEXT_STEPS.map(step => `
+          <article class="next-step-card" tabindex="0" aria-label="${step.title}">
             <h2>${step.title}</h2>
             <p>${step.summary}</p>
-            <ul class="verse-list">${scriptureList(step.verseIds)}</ul>
-          </article>`,
-        ).join('')}
+            <ul class="verse-list">
+              ${step.verseIds.map(id => {
+                const s = getScriptureById(id);
+                return `<li><strong>${s.reference}</strong> — ${s.text}<br><span class="plain-meaning">${s.plainMeaning}</span></li>`;
+              }).join('')}
+            </ul>
+          </article>
+        `).join('')}
       </div>
     </section>
   `;
@@ -309,27 +333,24 @@ function pageScriptureLibrary(): string {
       <h1 id="library-title">Scripture Library</h1>
       <p class="section-lead">Scripture organized by theme with plain meaning, reflection, and prayer.</p>
       <p class="translation-banner">Scripture translation default: KJV. Loaded passages: ${SCRIPTURES.length}.</p>
-      <div class="library-grid">
-        ${SCRIPTURE_LIBRARY.map(
-          (theme) => `
-          <article class="content-card">
+      <div class="library-theme-grid">
+        ${SCRIPTURE_LIBRARY.map(theme => `
+          <article class="library-theme-card" tabindex="0" aria-label="${theme.theme}">
             <h2>${theme.theme}</h2>
-            ${theme.scriptureIds
-              .map((id) => {
-                const scripture = getScriptureById(id);
-                return `
-                  <div class="library-item">
-                    <h3>${scripture.reference}</h3>
-                    <p>${scripture.text}</p>
-                    <p><strong>Plain meaning:</strong> ${scripture.plainMeaning}</p>
-                    ${scripture.reflectionQuestion ? `<p><strong>Reflection:</strong> ${scripture.reflectionQuestion}</p>` : ''}
-                    ${scripture.prayerPrompt ? `<p><strong>Prayer:</strong> ${scripture.prayerPrompt}</p>` : ''}
-                  </div>
-                `;
-              })
-              .join('')}
-          </article>`,
-        ).join('')}
+            ${theme.scriptureIds.map(id => {
+              const s = getScriptureById(id);
+              return `
+                <div class="library-item">
+                  <h3>${s.reference}</h3>
+                  <p>${s.text}</p>
+                  <p><strong>Plain meaning:</strong> ${s.plainMeaning}</p>
+                  ${s.reflectionQuestion ? `<p><strong>Reflection:</strong> ${s.reflectionQuestion}</p>` : ''}
+                  ${s.prayerPrompt ? `<p><strong>Prayer:</strong> ${s.prayerPrompt}</p>` : ''}
+                </div>
+              `;
+            }).join('')}
+          </article>
+        `).join('')}
       </div>
     </section>
   `;
@@ -340,16 +361,15 @@ function pagePrayerResponse(): string {
     <section class="section-pad" aria-labelledby="prayer-title">
       <h1 id="prayer-title">Turn Scripture Into Prayer</h1>
       <p class="section-lead">Respond to God's Word personally with faith and honesty.</p>
-      <div class="card-grid">
-        ${PRAYER_PROMPTS.map(
-          (prompt) => `
-          <article class="content-card">
+      <div class="prayer-prompt-grid">
+        ${PRAYER_PROMPTS.map(prompt => `
+          <article class="prayer-prompt-card" tabindex="0" aria-label="${prompt.title}">
             <h2>${prompt.title}</h2>
             <p><strong>${prompt.verse}</strong></p>
             <blockquote>${prompt.verseText}</blockquote>
             <p><strong>Prayer:</strong> ${prompt.prayer}</p>
-          </article>`,
-        ).join('')}
+          </article>
+        `).join('')}
       </div>
     </section>
   `;
