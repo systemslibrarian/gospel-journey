@@ -94,13 +94,13 @@ function pageHome(): string {
         <a class="button button-ghost" href="./who-is-jesus.html">Who Is Jesus?</a>
       </div>
       <div class="journey-preview" aria-label="Journey preview">
-        <span>Created for God</span>
-        <span>Separated by Sin</span>
-        <span>Promised a Savior</span>
-        <span>Jesus Came</span>
-        <span>Jesus Died</span>
-        <span>Jesus Rose</span>
-        <span>Respond by Faith</span>
+        <a href="./journey.html?step=0" class="journey-link" tabindex="0" aria-label="Start at: God Created Us for Relationship">Created for God</a>
+        <a href="./journey.html?step=1" class="journey-link" tabindex="0" aria-label="Start at: Sin Broke That Relationship">Separated by Sin</a>
+        <a href="./journey.html?step=2" class="journey-link" tabindex="0" aria-label="Start at: God Promised a Savior">Promised a Savior</a>
+        <a href="./journey.html?step=3" class="journey-link" tabindex="0" aria-label="Start at: Jesus Came">Jesus Came</a>
+        <a href="./journey.html?step=4" class="journey-link" tabindex="0" aria-label="Start at: Jesus Died for Our Sins">Jesus Died</a>
+        <a href="./journey.html?step=5" class="journey-link" tabindex="0" aria-label="Start at: Jesus Rose Again">Jesus Rose</a>
+        <a href="./journey.html?step=6" class="journey-link" tabindex="0" aria-label="Start at: We Respond by Faith">Respond by Faith</a>
       </div>
       <article class="verse-card key-verse">
         <h2>Key Verse</h2>
